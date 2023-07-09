@@ -26,8 +26,8 @@ return new class extends Migration
             $table->integer('tage_id')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
-            $table->timestamps();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

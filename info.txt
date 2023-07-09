@@ -1,8 +1,24 @@
 composer create-project laravel/laravel sohag
-composer require inertiajs/inertia-laravel
-    php artisan inertia:middleware
-    npm install @inertiajs/vue3
-composer require laravel/breeze -dev
+composer require laravel/breeze
+    php artisan breeze:install blade
+        php artisan migrate
+        npm install
+        npm run dev
+
+composer require barryvdh/laravel-dompdf https://github.com/barryvdh/laravel-dompdf
+        return Pdf::loadFile(public_path().'/myfile.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
+        Pdf::loadHTML($html)->setPaper('a4', 'landscape')->setWarnings(false)->save('myfile.pdf')
+        Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+composer require barryvdh/laravel-debugbar --dev https://github.com/barryvdh/laravel-debugbar
+composer require spatie/laravel-backup
+php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
+    php artisan backup:list
+    php artisan backup:run
+composer require pavel-mironchik/laravel-backup-panel
+    php artisan laravel-backup-panel:install
+    php artisan vendor:publish --tag=laravel-backup-panel-assets --force
+    php artisan vendor:publish --tag=laravel-backup-panel-views --force
+
 php artisan stub:publish
 php artisan make:model Book
 php artisan tinker
@@ -41,4 +57,13 @@ if (Schema::hasTable('users')) {
 }
 
 php artisan make:migration "create file manager table"
+
+
+
+
+php artisan cache:clear
+php artisan route:clear
+php artisan config:clear
+php artisan view:clear
+php artisan optimize
 
