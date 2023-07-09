@@ -13,9 +13,21 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+
+            $table->integer('user_id')->nullable();
+            $table->integer('type_id')->nullable();
+            $table->integer('category_id')->nullable();
             $table->string('title')->nullable();
-            $table->string('content')->nullable();
+            $table->text('short_description')->nullable();
+            $table->longText('long_description')->nullable();
+            $table->string('thumbnail')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('is_publish')->default(1);
+            $table->integer('tage_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

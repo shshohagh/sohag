@@ -1,4 +1,44 @@
 composer create-project laravel/laravel sohag
 composer require inertiajs/inertia-laravel
-php artisan inertia:middleware
-npm install @inertiajs/vue3
+    php artisan inertia:middleware
+    npm install @inertiajs/vue3
+composer require laravel/breeze -dev
+php artisan stub:publish
+php artisan make:model Book
+php artisan tinker
+    -->> NotDeleteable <<--
+        $book = \App\Models\Book::first();
+        $book->delete();
+            --> Deleteable <<--
+                ->cascadeOnDelete()
+        
+        $post = \App\Models\Post::first();
+        $post->delete();
+        
+
+php artisan make:model Review -mcr
+    $table->softDeletes();
+    $user = User::factory()->trashed()->create(); 
+php artisan make:seeder ReviewSeeder
+php artisan make:factory ReviewFactory
+
+php artisan migrate
+php artisan migrate:fresh
+    'user_type' => function (array $post) {
+                return App\User::find($post['user_id'])->type;
+    },
+
+php artisan db:seed
+    php artisan db:seed --class=UserSeeder
+    php artisan migrate:fresh --seed
+    php artisan migrate:fresh --seed --seeder=UserSeeder
+    php artisan db:seed --force
+
+php artisan schema:dump
+
+if (Schema::hasTable('users')) {
+    // The "users" table exists...
+}
+
+php artisan make:migration "create file manager table"
+
