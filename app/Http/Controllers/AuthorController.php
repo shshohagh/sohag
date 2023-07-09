@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductInvoice;
+use App\Models\Author;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
 
-class ProductInvoiceController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +34,7 @@ class ProductInvoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductInvoice $productInvoice)
+    public function show(Author $author)
     {
         //
     }
@@ -43,7 +42,7 @@ class ProductInvoiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductInvoice $productInvoice)
+    public function edit(Author $author)
     {
         //
     }
@@ -51,7 +50,7 @@ class ProductInvoiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProductInvoice $productInvoice)
+    public function update(Request $request, Author $author)
     {
         //
     }
@@ -59,21 +58,8 @@ class ProductInvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductInvoice $productInvoice)
+    public function destroy(Author $author)
     {
         //
-    }
-     /**
-     * Display a View of the PDF.
-     */
-    public function loadViewInvoice()
-    {
-        $pdf = Pdf::loadView('pdf.invoice');
-        return $pdf->stream();
-    }
-    public function downloadInvoice()
-    {
-        $pdf = Pdf::loadView('pdf.invoice');
-        return $pdf->download('invoice.pdf');
     }
 }

@@ -58,6 +58,8 @@ if (Schema::hasTable('users')) {
 
 php artisan make:migration "create file manager table"
 
+Next---------------------------------------------------------------------------------------------------------------------------------------------Step 
+Observer
 
 
 
