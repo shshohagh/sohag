@@ -1,0 +1,6 @@
+https://github.com/LaravelDaily/Laravel-Appointments.git
+https://github.com/LaravelDaily/Laravel-School-Timetable-Calendar.git
+https://github.com/LaravelDaily/Laravel-Shops-Map-QuickAdminPanel.git
+https://github.com/LaravelDaily/QuickAdminPanel-Laravel-Contract-Management.git
+https://github.com/LaravelDaily/Laravel-Employee-Attendance-Reports.git
+https://github.com/LaravelDaily/Laravel-Monthly-Invoices.git
