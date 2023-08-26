@@ -61,13 +61,27 @@ php artisan make:migration "create file manager table"
 ---------Import and Export using Laravel Excel-----------
 Link > https://docs.laravel-excel.com/
 composer require maatwebsite/excel
+
+--THE "OLD" WAY WITH NO QUEUES/LIVEWIRE--
+> App\Imports > Controller
 php artisan make:import UsersImport --model=User 
 php artisan make:export UsersExport --model=User
+
+--THE "NEW" WAY WITH QUEUES/LIVEWIRE--
+> App\Jobs > App\Http\Livewire
+php artisan make:job UserExportJob
+php artisan make:job UserImportJob
 php artisan make:livewire import
 php artisan make:livewire export
 php artisan livewire:publish --config
 
-Next---------------------------------------------------------------------------------------------------------------------------------------------Step 
+php artisan queue:batches-table
+php artisan migrate
+
+php artisan make:request StoreUserRequest
+php artisan make:request UpdateUserRequest
+
+Next---------------------------Step 
 Observer
 
 
