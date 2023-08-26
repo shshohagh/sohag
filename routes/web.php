@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
         })->name('admin');
     });
     Route::resource('book',BookController::class);
+    Route::get('user_export',[UserController::class,'user_export'])->name('user_export');
+    Route::post('user_import',[UserController::class,'user_import'])->name('user_import');
 });
 
 require __DIR__.'/auth.php';

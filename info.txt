@@ -58,6 +58,15 @@ if (Schema::hasTable('users')) {
 
 php artisan make:migration "create file manager table"
 
+---------Import and Export using Laravel Excel-----------
+Link > https://docs.laravel-excel.com/
+composer require maatwebsite/excel
+php artisan make:import UsersImport --model=User 
+php artisan make:export UsersExport --model=User
+php artisan make:livewire import
+php artisan make:livewire export
+php artisan livewire:publish --config
+
 Next---------------------------------------------------------------------------------------------------------------------------------------------Step 
 Observer
 
@@ -68,4 +77,3 @@ php artisan route:clear
 php artisan config:clear
 php artisan view:clear
 php artisan optimize
-
