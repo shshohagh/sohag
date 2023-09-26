@@ -12,13 +12,15 @@ class DashboardController extends Controller
     public function dashboard(){
         
         //assign role 
-        //$user = \Auth::user();
+        $user = \Auth::user();
         // dd($user);
-        // $role = Role::where('slug','admin')->first();
-        // $user->roles()->attach($role);
+        // if($user->hasRole('user')==false){
+        //     $role = Role::where('slug','user')->first();
+        //     $user->roles()->attach($role);
+        // }
         
         // check role
-        // dd($user->hasRole('admin'));
+        //dd($user->hasRole('admin'));
         
         
         // 

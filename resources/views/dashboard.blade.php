@@ -21,12 +21,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="mb-4 d-flex justify-content-between">
-                            @livewire('export')
-                            @livewire('import')
-                        </div>
                     {{--                    THE "OLD" WAY WITH NO QUEUES/LIVEWIRE     --}}                
-                    <!-- <div class="mb-4 d-flex justify-content-between">                        
+                    <div class="mb-4 d-flex justify-content-between">                        
                         <div><a href="{{ route('user_export') }}" class="btn btn-outline-primary">Export</a></div>                        
                         <div>                            
                             <form action="{{ route('user_import') }}" method="POST" enctype="multipart/form-data">                                
@@ -38,7 +34,7 @@
                                  @enderror                            
                                 </form>                        
                         </div>                    
-                    </div> -->
+                    </div>
 
                     <table class="table">
                         <thead>
