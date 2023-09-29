@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function dashboard(){
         
         //assign role 
-        $user = \Auth::user();
+        // $user = \Auth::user();
         // dd($user);
         // if($user->hasRole('user')==false){
         //     $role = Role::where('slug','user')->first();
@@ -39,9 +39,8 @@ class DashboardController extends Controller
         //dd($user->roles);
         //dd($user->permissions);
         
-        $users = Cache::remember('users', now()->addMinutes(30), function () {
-            return DB::table('users')->select(['id', 'name', 'email'])->paginate(10);
-        });
+        $users = Cache::remember('users', now()->addMinutes(30), function () { return DB::table('users')->select(['id', 'name', 'email'])->get(); });
+        //$users = DB::table('users')->select(['id', 'name', 'email'])->get();
         return view('dashboard', compact('users'));
     }
 }

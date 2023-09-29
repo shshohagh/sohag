@@ -63,7 +63,7 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot><tr><td id="pagination" colspan="3"> {{$users->links()}} </td></tr></tfoot>
+                            <tfoot><tr><td id="pagination" colspan="3"> {{-- $users->links() --}} </td></tr></tfoot>
                         </table>
                     </div>
 

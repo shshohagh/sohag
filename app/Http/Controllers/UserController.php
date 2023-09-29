@@ -47,7 +47,7 @@ class UserController extends Controller
                                 </tr>';
                              }
                              $data .='</tbody>
-                            <tfoot><tr><td id="pagination" colspan="3"> {{$users->links()}} </td></tr></tfoot>
+                            <tfoot><tr><td id="pagination" colspan="3"> '.$users->links().' </td></tr></tfoot>
                         </table>';
         return Response($data);
     }
