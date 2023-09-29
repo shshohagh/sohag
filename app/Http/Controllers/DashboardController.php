@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
-
+use Illuminate\Support\Facades\{DB,Cache};
 class DashboardController extends Controller
 {
     public function dashboard(){
@@ -38,7 +38,10 @@ class DashboardController extends Controller
         // 
         //dd($user->roles);
         //dd($user->permissions);
-        $users = User::paginate(30);
+        
+        $users = Cache::remember('users', now()->addMinutes(30), function () {
+            return DB::table('users')->select(['id', 'name', 'email'])->paginate(10);
+        });
         return view('dashboard', compact('users'));
     }
 }
