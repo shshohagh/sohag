@@ -6,19 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
-
+use Illuminate\Support\Facades\{DB,Cache};
 class DashboardController extends Controller
 {
     public function dashboard(){
         
         //assign role 
-        //$user = \Auth::user();
+        // $user = \Auth::user();
         // dd($user);
-        // $role = Role::where('slug','admin')->first();
-        // $user->roles()->attach($role);
+        // if($user->hasRole('user')==false){
+        //     $role = Role::where('slug','user')->first();
+        //     $user->roles()->attach($role);
+        // }
         
         // check role
-        // dd($user->hasRole('admin'));
+        //dd($user->hasRole('admin'));
         
         
         // 
@@ -36,7 +38,9 @@ class DashboardController extends Controller
         // 
         //dd($user->roles);
         //dd($user->permissions);
-        $users = User::paginate(30);
+        
+        $users = Cache::remember('users', now()->addMinutes(30), function () { return DB::table('users')->select(['id', 'name', 'email'])->get(); });
+        //$users = DB::table('users')->select(['id', 'name', 'email'])->get();
         return view('dashboard', compact('users'));
     }
 }

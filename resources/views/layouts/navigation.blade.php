@@ -18,6 +18,15 @@
                     <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
                         {{ __('Admin') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('editor')" :active="request()->routeIs('editor')">
+                        {{ __('Editor') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('author')" :active="request()->routeIs('author')">
+                        {{ __('Author') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('user')" :active="request()->routeIs('user')">
+                        {{ __('User') }}
+                    </x-nav-link>
 
                 </div>
             </div>

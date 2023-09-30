@@ -81,9 +81,11 @@ php artisan migrate
 php artisan make:request StoreUserRequest
 php artisan make:request UpdateUserRequest
 
-Next---------------------------Step 
-Observer
+#cache::remember()
+#observer
+php artisan make:observer UserObserver --model=User
 
+Next---------------------------Step 
 
 
 php artisan cache:clear
