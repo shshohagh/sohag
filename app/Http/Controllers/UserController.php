@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\{DB,Cache};
 
 class UserController extends Controller
 {
@@ -27,10 +28,9 @@ class UserController extends Controller
 
     public function getUsers(Request $request)
     {
-        $data='';
         $recordsPerPage = $request->input('records', 10); // Default to 10 records per page
         $users = DB::table('users')->select(['id','name','email'])->paginate($recordsPerPage);
-        $data .='<table class="table">
+        $data ='<table class="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -49,7 +49,7 @@ class UserController extends Controller
                              $data .='</tbody>
                             <tfoot><tr><td id="pagination" colspan="3"> '.$users->links().' </td></tr></tfoot>
                         </table>';
-        return Response($data);
+        return response($data);
     }
 
 }

@@ -39,7 +39,7 @@ class DashboardController extends Controller
         //dd($user->roles);
         //dd($user->permissions);
         
-        $users = Cache::remember('users', now()->addMinutes(30), function () { return DB::table('users')->select(['id', 'name', 'email'])->get(); });
+        $users = Cache::remember('users', now()->addMinutes(60*24), function () { return DB::table('users')->select('id', 'name', 'email')->get(); });
         //$users = DB::table('users')->select(['id', 'name', 'email'])->get();
         return view('dashboard', compact('users'));
     }

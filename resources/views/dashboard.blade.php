@@ -12,6 +12,7 @@
                     <div class="mb-4">
                         <label for="recordsPerPage">Records per page:</label>
                         <select id="recordsPerPage">
+                            <option value="{{ $users->count() }}">{{ $users->count() }}</option>
                             <option value="10">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
@@ -77,7 +78,7 @@
     <script>
         $(document).ready(function () {
             // Initial load of the table
-            //loadTable(10); // Default to 10 records per page
+            //loadTable(); // Default to 10 records per page
         });
             // Handle dropdown change event
             $('#recordsPerPage').on('change', function () {
@@ -89,7 +90,7 @@
                 $.ajax({
                     url: "{{route('get_users')}}", // Replace with your route
                     type: 'GET',
-                    dataType: 'json',
+                    
                     data: {
                         'records': recordsPerPage
                     },

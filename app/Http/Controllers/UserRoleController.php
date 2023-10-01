@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\UserRole;
 use Illuminate\Http\Request;
+use App\Models\Role;
+use App\Models\User;
 
 class UserRoleController extends Controller
 {
@@ -28,7 +30,11 @@ class UserRoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::where('id',$request->user_id)->first('id');
+        if($user->hasRole($request->role)==false){
+             $role = Role::where('slug',$request->role)->first();
+             $user->roles()->attach($role);
+        }
     }
 
     /**

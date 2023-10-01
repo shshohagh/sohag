@@ -14,13 +14,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        //\App\Models\User::factory(10)->create();
+        
         User::insert([
             ['name'=>'Admin','email'=>'admin@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
             ['name'=>'Editor','email'=>'editor@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
             ['name'=>'Author','email'=>'author@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
             ['name'=>'user','email'=>'user@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
         ]);
+        \App\Models\User::factory(100000)->create();
 
         Role::insert([
             ['name'=>'Admin','slug'=>'admin'],

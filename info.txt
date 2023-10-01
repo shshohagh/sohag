@@ -81,8 +81,9 @@ php artisan migrate
 php artisan make:request StoreUserRequest
 php artisan make:request UpdateUserRequest
 
-#cache::remember()
-#observer
+Cache::remember('table_name', now()->addMinutes(60*24), function () {
+    //
+});
 php artisan make:observer UserObserver --model=User
 
 Next---------------------------Step 
