@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function user_export() 
     {
-        return Excel::download(new UsersExport, 'users.csv'); /* users.xlsx / users.csv */
+        return Excel::download(new UsersExport, 'users.csv'); /* xlsx / csv */
     }
     public function user_import(Request $request)
     {
