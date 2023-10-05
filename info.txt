@@ -105,6 +105,15 @@ composer require laravel/ui --dev
 php artisan ui bootstrap --auth
 npm install && npm run dev
 git add . && git commit -m "Setup auth scaffold"
+php artisan make:seed PermissionsDemoSeeder
+php artisan migrate:fresh --seed --seeder=PermissionsDemoSeeder
+
+git remote add origin git@github.com:YOURUSERNAME/REPONAME.git
+git push -u origin main
+
+git add .
+git commit -m "Explain what your commit is about here"
+git push origin main
 
 php artisan cache:clear
 php artisan route:clear
