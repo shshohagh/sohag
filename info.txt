@@ -84,7 +84,7 @@ Cache::remember('table_name', now()->addMinutes(60*24), function () {
 php artisan make:observer UserObserver --model=User
 
 Next---------------------------Step 
-
+composer require spatie/laravel-permission
 
 php artisan cache:clear
 php artisan route:clear
