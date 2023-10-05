@@ -99,6 +99,12 @@ sed -i '' $'s/use HasFactory, Notifiable;/use HasFactory, Notifiable;\\\n    use
 
 sed -i '' $'s/use HasApiTokens, HasFactory, Notifiable;/use HasApiTokens, HasFactory, Notifiable;\\\n    use \\\\Spatie\\\\Permission\\\\Traits\\\\HasRoles;/' app/Models/User.php
 
+git add . && git commit -m "Add HasRoles trait"
+
+composer require laravel/ui --dev
+php artisan ui bootstrap --auth
+npm install && npm run dev
+git add . && git commit -m "Setup auth scaffold"
 
 php artisan cache:clear
 php artisan route:clear
