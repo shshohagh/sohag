@@ -84,7 +84,21 @@ Cache::remember('table_name', now()->addMinutes(60*24), function () {
 php artisan make:observer UserObserver --model=User
 
 Next---------------------------Step 
+
+sed -i '' 's/DB_CONNECTION=mysql/DB_CONNECTION=sqlite/' .env
+sed -i '' 's/DB_DATABASE=/#DB_DATABASE=/' .env
+touch database/database.sqlite
+
 composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+git add .
+git commit -m "Add Spatie Laravel Permissions package"
+php artisan migrate:fresh
+
+sed -i '' $'s/use HasFactory, Notifiable;/use HasFactory, Notifiable;\\\n    use \\\\Spatie\\\\Permission\\\\Traits\\\\HasRoles;/' app/Models/User.php
+
+sed -i '' $'s/use HasApiTokens, HasFactory, Notifiable;/use HasApiTokens, HasFactory, Notifiable;\\\n    use \\\\Spatie\\\\Permission\\\\Traits\\\\HasRoles;/' app/Models/User.php
+
 
 php artisan cache:clear
 php artisan route:clear
