@@ -1,14 +1,11 @@
 composer create-project laravel/laravel sohag
-composer require laravel/breeze
-    php artisan breeze:install blade
-        php artisan migrate
-        npm install
-        npm run dev
+    npm install
+    npm run dev
 
 composer require barryvdh/laravel-dompdf https://github.com/barryvdh/laravel-dompdf
-        return Pdf::loadFile(public_path().'/myfile.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
-        Pdf::loadHTML($html)->setPaper('a4', 'landscape')->setWarnings(false)->save('myfile.pdf')
-        Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+    return Pdf::loadFile(public_path().'/myfile.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
+    Pdf::loadHTML($html)->setPaper('a4', 'landscape')->setWarnings(false)->save('myfile.pdf')
+    Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 composer require barryvdh/laravel-debugbar --dev https://github.com/barryvdh/laravel-debugbar
 composer require spatie/laravel-backup
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
@@ -87,8 +84,7 @@ Cache::remember('table_name', now()->addMinutes(60*24), function () {
 php artisan make:observer UserObserver --model=User
 
 Next---------------------------Step 
-composer require --dev laravel/dusk
-php artisan dusk:install
+
 
 php artisan cache:clear
 php artisan route:clear
