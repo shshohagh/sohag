@@ -108,15 +108,24 @@ git add . && git commit -m "Setup auth scaffold"
 php artisan make:seed PermissionsDemoSeeder
 php artisan migrate:fresh --seed --seeder=PermissionsDemoSeeder
 
-git remote add origin git@github.com:YOURUSERNAME/REPONAME.git
+git remote add origin git@github.com:shshohagh/sohag.git
 git push -u origin main
 
 git add .
 git commit -m "Explain what your commit is about here"
 git push origin main
 
+
+
 php artisan cache:clear
 php artisan route:clear
 php artisan config:clear
 php artisan view:clear
 php artisan optimize
+
+sudo chmod 777 /Applications/XAMPP/xamppfiles/htdocs/sohag/storage/logs/
+sudo chmod 777 /Applications/XAMPP/xamppfiles/htdocs/sohag/storage/framework/sessions/
+sudo chmod 777 /Applications/XAMPP/xamppfiles/htdocs/sohag/storage/framework/views/
+sudo chmod 777 /Applications/XAMPP/xamppfiles/htdocs/sohag/storage/framework/cache/data/
+sudo chmod 777 /Applications/XAMPP/xamppfiles/htdocs/sohag/bootstrap/cache/
+sudo chmod 777 /Applications/XAMPP/xamppfiles/htdocs/sohag/public/

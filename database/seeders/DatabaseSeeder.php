@@ -17,10 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         // Worked
         $this->call([
-                UserSeeder::class,
+                PermissionsDemoSeeder::class,
+                //UserSeeder::class,
                 PostSeeder::class,
-                BookSeeder::class,
-                ReviewSeeder::class,
+                //BookSeeder::class,
+                //ReviewSeeder::class,
             ]);
 
         // Not Worked

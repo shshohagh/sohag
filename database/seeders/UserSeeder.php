@@ -14,14 +14,11 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        
-        User::insert([
-            ['name'=>'Admin','email'=>'admin@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
-            ['name'=>'Editor','email'=>'editor@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
-            ['name'=>'Author','email'=>'author@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
-            ['name'=>'user','email'=>'user@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
+        Permission::insert([
+            ['name'=>'Add Post','slug'=>'add-post'],
+            ['name'=>'Edit Post','slug'=>'edit-post'],
+            ['name'=>'Delete Post','slug'=>'delete-post'],
         ]);
-        \App\Models\User::factory(100000)->create();
 
         Role::insert([
             ['name'=>'Admin','slug'=>'admin'],
@@ -29,14 +26,13 @@ class UserSeeder extends Seeder
             ['name'=>'Author','slug'=>'author'],
             ['name'=>'User','slug'=>'user'],
         ]);
-
-        Permission::insert([
-            ['name'=>'Add Post','slug'=>'add-post'],
-            ['name'=>'Edit Post','slug'=>'edit-post'],
-            ['name'=>'Delete Post','slug'=>'delete-post'],
-            ['name'=>'Add Book','slug'=>'add-book'],
-            ['name'=>'Edit Book','slug'=>'edit-book'],
-            ['name'=>'Delete Book','slug'=>'delete-book'],
+        
+        User::insert([
+            ['name'=>'Admin','email'=>'admin@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
+            ['name'=>'Editor','email'=>'editor@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
+            ['name'=>'Author','email'=>'author@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
+            ['name'=>'user','email'=>'user@gmail.com','password'=>bcrypt('11111111'),'remember_token' => Str::random(10),'email_verified_at' => now(),],
         ]);
+        //\App\Models\User::factory(100)->create();
     }
 }
