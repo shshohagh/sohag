@@ -10,7 +10,13 @@ class UserObserver
     /**
      * Handle the User "created" event.
      */
+
     public function created(User $user): void
+    {
+        Cache::forget('users');
+    }
+
+    public function updated(User $user): void
     {
         Cache::forget('users');
     }
