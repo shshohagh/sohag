@@ -16,8 +16,6 @@ class PermissionsDemoSeeder extends Seeder
      */
     public function run(): void
     {
-
-
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
